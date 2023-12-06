@@ -11,7 +11,7 @@ const ItemListContainer = ({ greeting }) => {
   }, []);
 
   return (
-    <Box component={"main"}>
+    <Box component={"main"} mb={"120px"}>
       <Typography variant="body1" color={"primary"} component={"p"} mb={1}>
         - Our Products
       </Typography>

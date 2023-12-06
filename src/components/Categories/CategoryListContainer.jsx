@@ -7,6 +7,7 @@ import LocalPrintshopOutlinedIcon from "@mui/icons-material/LocalPrintshopOutlin
 import ControlPointOutlinedIcon from "@mui/icons-material/ControlPointOutlined";
 import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
+
 const CategoryListContainer = () => {
   const StyledBox = styled("div")({
     position: "relative",
