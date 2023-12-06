@@ -1,40 +1,96 @@
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { purple, green } from "@mui/material/colors";
+import PropTypes from "prop-types";
 
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { purple, green } from '@mui/material/colors';
-import PropTypes from 'prop-types';
-
-
-// Define tu propio tema utilizando createTheme
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: purple[500],
-    },
-    secondary: {
-      main: green[500],
-    },
-  },
-  // Otros estilos y configuraciones del tema
-  typography: {
-    fontFamily: 'Roboto, sans-serif',
-    // ... más configuraciones de tipografía si es necesario
-  },
-  // ... más configuraciones del tema si es necesario
-});
-
-// Componente ThemeProvider personalizado para proporcionar el tema a toda la aplicación
 const CustomThemeProvider = ({ children }) => {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: purple[500],
+      },
+      secondary: {
+        main: green[500],
+      },
+    },
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 960,
+        lg: 1280,
+        xl: 1920,
+      },
+    },
+    typography: {
+      fontFamily: "Roboto, sans-serif",
+    },
+  });
+
+  // Modificar las fuentes después de definir los breakpoints
+  theme.typography.h1 = {
+    fontFamily: "Roboto, sans-serif",
+    fontSize: "2.5rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "2rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.5rem",
+    },
+  };
+
+  theme.typography.h2 = {
+    fontFamily: "Roboto, sans-serif",
+    fontSize: "2.5rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "2rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.5rem",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "3.5rem",
+    },
+  };
+
+  theme.typography.h3 = {
+    fontFamily: "Roboto, sans-serif",
+    fontSize: "2rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.5rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.2rem",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "3.5rem",
+    },
+  };
+
+  theme.typography.body1 = {
+    fontFamily: "Roboto, sans-serif",
+    fontSize: "1.2rem",
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "1.4rem",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "1.6rem",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "1.8rem",
+    },
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline /> 
+      <CssBaseline />
       {children}
     </ThemeProvider>
   );
 };
 
 CustomThemeProvider.propTypes = {
-    children: PropTypes.node.isRequired, // Validación para la prop 'children'
-  };
+  children: PropTypes.node.isRequired,
+};
 
 export default CustomThemeProvider;

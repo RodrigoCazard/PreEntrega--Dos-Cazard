@@ -34,7 +34,10 @@ const SearchWidget = () => {
       component="form"
       onClick={handleExpand}
       sx={{
-        display: "flex",
+        display:{
+          xs: 'none',
+          sm:'flex'
+        },
         alignItems: "center",
         width: expanded ? '230px' : '35px',
         borderRadius: 10,

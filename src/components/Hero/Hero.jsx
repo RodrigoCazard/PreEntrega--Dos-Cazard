@@ -1,56 +1,109 @@
-
-import { Grid, Button, Box } from '@mui/material';
-import Typography from '@mui/material/Typography';
+import { Grid, Button, Box } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import Img from "./icon-image-not-found-free-vector.jpg";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Hero = () => {
+  const styledHero = {
+    styledButton: {
+      width: 300,
+      height: 70,
+      fontSize: "1.5rem",
+      fontWeight: "bold",
+      borderRadius: 10,
+    },
+    styledImg: {
+      width: "70%",
+      height: "auto",
+      display: "block",
+      objectFit: "contain",
+    },
+    styledGridContainer: {
+      backgroundColor: "rgba(0,0,0,0.03)",
+      borderRadius: 10,
+
+      width: "100%",
+      height: "100%",
+      padding: "5px",
+    },
+
+    styledGridItems: {
+      item1: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        gap: 4,
+      },
+    },
+
+    styledBox: {
+      width: "100%",
+      height: "100%",
+      position: "relative",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+
+    styledIcons: {
+      arrows: {
+        cursor: "pointer",
+        position: "absolute",
+        top: "50%",
+        transform: "translateY(-50%)",
+      },
+    },
+  };
+
   return (
-    <Grid container fluid sx={{ backgroundColor: "rgba(0,0,0,0.03)", borderRadius: 10,  width:'100%', padding: "5%", mb: 5 }}>
-      <Grid item xs={12} md={6} sx={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 4 }}>
-        <Typography
-          variant="h2"
+    <Grid container fluid sx={styledHero.styledGridContainer}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        padding={"40px"}
+        width={100}
+        display={"flex"}
+        justifyContent={"center"}
+        alignContent={"center"}
+        flexDirection={"column"}
+      >
+        <Box mb={6}>
+          <Typography variant="body1" color={"primary"} component={"p"} mb={1}>
+            - Tech Products
+          </Typography>
+          <Typography variant={"h2"} component={"h2"}>
+            We Offer the Best Products for you
+          </Typography>
+        </Box>
+        <Button
+          disableElevation
+          size="large"
+          variant="contained"
           sx={{
-            fontSize: {
-              xs: '2rem',
-              sm: '2.5rem',
-              md: '3rem',
-              lg: '4rem',
-              xl: '5rem'
-            },
+            fontWeight: "bold",
+            fontSize: "1.1rem",
+            borderRadius: 20,
+            width: "200px",
+            height: "60px",
           }}
         >
-          Tu texto aquí
-        </Typography>
-        <Typography variant="h2" component="h2" sx={{
-          marginLeft: 'auto',
-          marginRight: "20%",
-          fontSize: {
-            xs: '1rem',
-            sm: '1.5rem',
-            md: '2rem',
-            lg: '3rem',
-            xl: '4rem'
-          },
-        }}>
-          $259.99
-        </Typography>
-        <Button variant="contained" sx={{ width: 300, height: 70, fontSize: "1.5rem", fontWeight: "bold", borderRadius: 10 }}>Buy Now</Button>
+          Shop now
+        </Button>
       </Grid>
-      <Grid item xs={12} md={6} >
-        <Box width={'100%'} height={'100%'}  position="relative" display={'flex'} alignItems={'center'} justifyContent={'center'}>
-
-          <ArrowBackIcon fontSize='large' style={{ cursor:'pointer',position: 'absolute', top: '50%', left: '10px', transform: 'translateY(-50%)' }}></ArrowBackIcon>
-
-          <img
-            src={Img}
-            alt=""
-            style={{width:'70%',height:'auto',display:'block', objectFit: 'contain' }}
-          />
-          
-          <ArrowForwardIcon fontSize='large' style={{ cursor:'pointer', position: 'absolute', top: '50%', right: '10px', transform: 'translateY(-50%)' }}></ArrowForwardIcon>
-        </Box>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        padding={"40px"}
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+      >
+        <img
+          src={Img}
+          alt="Imagen de computadora"
+          style={{ objectFit: "contain", width: "80%" }}
+        ></img>
       </Grid>
     </Grid>
   );
