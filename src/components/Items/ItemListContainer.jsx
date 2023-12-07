@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getProductos } from "../../asyncmock";
 import ItemList from "./ItemList";
@@ -19,6 +19,14 @@ const ItemListContainer = ({ greeting }) => {
         Explore out Products
       </Typography>
       <ItemList products={products}></ItemList>
+      <Box display={"flex"} justifyContent={"center"}>
+        <Button
+          variant="contained"
+          sx={{ padding: "15px 50px", borderRadius: 15, fontSize: "1.5rem" }}
+        >
+          View all
+        </Button>
+      </Box>
     </Box>
   );
 };

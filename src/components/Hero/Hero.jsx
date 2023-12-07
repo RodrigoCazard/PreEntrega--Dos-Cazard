@@ -60,14 +60,14 @@ const Hero = () => {
         item
         xs={12}
         md={6}
-        padding={"40px"}
+        paddingLeft={"80px"}
         width={100}
         display={"flex"}
         justifyContent={"center"}
         alignContent={"center"}
         flexDirection={"column"}
       >
-        <Box mb={6}>
+        <Box mb={6} ml={{ lg: 6, md: 0 }}>
           <Typography variant="body1" color={"primary"} component={"p"} mb={1}>
             - Tech Products
           </Typography>
@@ -83,8 +83,8 @@ const Hero = () => {
             fontWeight: "bold",
             fontSize: "1.1rem",
             borderRadius: 20,
-            width: "200px",
-            height: "60px",
+            minWidth: "100px",
+            minHeight: "60px",
           }}
         >
           Shop now

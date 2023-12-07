@@ -10,6 +10,10 @@ import NavMenu from "./components/NavBar/NavMenu";
 import CategoryListContainer from "./components/Categories/CategoryListContainer";
 import { Box } from "@mui/material";
 import CustomThemeProvider from "./components/Utils/CustomThemeProvider";
+import WhyUs from "./components/WhyUs/WhyUs";
+import ReviewsNotes from "./components/ReviewsNotes/ReviewsNotes";
+import Newsletter from "./components/Newsletter/Newsletter";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -51,12 +55,16 @@ function App() {
             {isOpen ? (
               <NavMenu isOpen={isOpen}></NavMenu>
             ) : (
-              <Box style={{ padding: "0 8%" }}>
+              <Box style={{ padding: "0 10%" }}>
                 <Hero></Hero>
                 <CategoryListContainer
                   greeting={"Aqui van a ir las categorias :D"}
                 ></CategoryListContainer>
                 <ItemListContainer greeting={"Aqui van a ir los items :D"} />
+                <WhyUs></WhyUs>
+                <ReviewsNotes></ReviewsNotes>
+                <Newsletter></Newsletter>
+                <Footer></Footer>
               </Box>
             )}
           </CustomThemeProvider>

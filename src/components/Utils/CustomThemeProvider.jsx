@@ -2,6 +2,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { purple, green } from "@mui/material/colors";
 import PropTypes from "prop-types";
+import { light } from "@mui/material/styles/createPalette";
 
 const CustomThemeProvider = ({ children }) => {
   const theme = createTheme({
@@ -78,6 +79,19 @@ const CustomThemeProvider = ({ children }) => {
     },
     [theme.breakpoints.up("lg")]: {
       fontSize: "1.8rem",
+    },
+  };
+  theme.typography.body2 = {
+    fontSize: "1rem",
+    fontWeight: "light",
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "1rem",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "1.1rem",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "1.2rem",
     },
   };
 
