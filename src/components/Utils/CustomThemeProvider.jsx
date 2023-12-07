@@ -94,7 +94,19 @@ const CustomThemeProvider = ({ children }) => {
       fontSize: "1.2rem",
     },
   };
-
+  theme.typography.body3 = {
+    fontSize: "17px",
+    letterSpacing: "3px",
+    fontWeight: "light",
+    display: "block",
+    opacity: "0.8",
+    cursor: "pointer",
+    transition: "all .2s ease",
+    "&:hover": {
+      opacity: 1,
+      transform: "scale(1.02)",
+    },
+  };
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
