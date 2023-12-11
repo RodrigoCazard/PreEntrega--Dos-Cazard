@@ -72,7 +72,7 @@ const Footer = () => {
         item
         xs={6}
         md={3}
-        display={"flex"}
+        display={"inline-flex"}
         flexDirection={"column"}
         gap={2}
       >
@@ -87,7 +87,7 @@ const Footer = () => {
         item
         xs={6}
         md={3}
-        display={"flex"}
+        display={"inline-flex"}
         flexDirection={"column"}
         gap={2}
       >
@@ -102,7 +102,7 @@ const Footer = () => {
         item
         xs={6}
         md={3}
-        display={"flex"}
+        display={"inline-flex"}
         flexDirection={"column"}
         gap={2}
       >

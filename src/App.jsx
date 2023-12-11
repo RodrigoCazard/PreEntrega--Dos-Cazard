@@ -14,6 +14,7 @@ import WhyUs from "./components/WhyUs/WhyUs";
 import ReviewsNotes from "./components/ReviewsNotes/ReviewsNotes";
 import Newsletter from "./components/Newsletter/Newsletter";
 import Footer from "./components/Footer/Footer";
+import { Toaster } from "sonner";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -45,6 +46,7 @@ function App() {
 
   return (
     <>
+      <Toaster position="bottom-left" />
       <ScrollToTopOnRefresh />
       {loading ? (
         <Loader />

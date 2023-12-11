@@ -3,7 +3,7 @@ import CartWidget from "./CartWidget.jsx";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { styled } from "@mui/material/styles";
+
 import SearchWidget from "./SearchWidget.jsx";
 import NavWidget from "./NavWidget.jsx";
 import LogoImg from "../../assets/logo.png";

@@ -2,7 +2,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { purple, green } from "@mui/material/colors";
 import PropTypes from "prop-types";
-import { light } from "@mui/material/styles/createPalette";
 
 const CustomThemeProvider = ({ children }) => {
   const theme = createTheme({

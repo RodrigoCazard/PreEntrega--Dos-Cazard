@@ -1,7 +1,35 @@
 import { Box, Button, Typography } from "@mui/material";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
+import emailjs from "emailjs-com";
+import { toast } from "sonner";
 
 const Newsletter = () => {
+  const [email, setEmail] = useState("");
+
+  const sendMessage = (e) => {
+    e.preventDefault();
+
+    const templateParams = {
+      from_email: email,
+    };
+
+    emailjs
+      .send(
+        "service_i5eo9f8",
+        "template_221t5rd",
+        templateParams,
+        "WMwpX2LtjWyOa7YTs"
+      )
+      .then(() => {
+        toast.success("You have successfully subscribed");
+      })
+      .catch((e) => {
+        toast.error("Event has not been created", e);
+      });
+
+    setEmail("");
+  };
+
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => {
@@ -17,7 +45,9 @@ const Newsletter = () => {
     fontSize: "20px",
     borderRadius: 40,
     outline: "none",
-    width: "450px",
+    width: "100%", // Ancho del input al 100% del contenedor
+    maxWidth: "450px", // Ancho máximo permitido
+    minWidth: "150px", // Ancho mínimo permitido
     border: isFocused ? "2px solid #9c27b0" : "2px solid transparent",
     transition: "all 0.5s ease",
   };
@@ -28,6 +58,7 @@ const Newsletter = () => {
       my={"120px"}
       bgcolor={"rgba(0,0,0,0.03)"}
       paddingY={"120px"}
+      paddingX={"20px"}
       borderRadius={10}
     >
       <Box textAlign={"center"}>
@@ -44,14 +75,21 @@ const Newsletter = () => {
           alignItems={"center"}
           flexWrap={"wrap"}
           gap={5}
+          component={"form"}
+          onSubmit={sendMessage}
         >
           <input
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            type="text"
             placeholder="Your Email"
             style={inputStyle}
             onFocus={handleFocus}
             onBlur={handleBlur}
           />
           <Button
+            onClick={() => {}}
+            type="submit"
             variant="contained"
             disableElevation
             size="large"
