@@ -1,10 +1,22 @@
 import { useTheme } from "@emotion/react";
-import { Box, Typography } from "@mui/material";
+import { Category } from "@mui/icons-material";
+import { Box, Chip, Typography } from "@mui/material";
 import React from "react";
 
-const Item = ({ nombre, precio, img }) => {
+const CategoryColors = {
+  desktop: "60, 179, 113",
+  laptop: "0, 0, 255",
+  mobilePhone: "255, 165, 0",
+  printer: "255, 0, 0",
+  // Puedes agregar más categorías y colores según sea necesario
+};
+
+const Item = ({ category, nombre, precio, img }) => {
   const theme = useTheme();
 
+  const handleClick = () => {
+    console.info("You clicked the Chip.");
+  };
   const primaryColor = theme.palette.primary.main;
 
   return (
@@ -21,8 +33,8 @@ const Item = ({ nombre, precio, img }) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "200px", // Puedes ajustar la altura según tus necesidades
-          border: "1px solid #ccc", // Agrega un borde para visualizar la Box
+          height: "200px",
+
           "&::before": {
             content: '"Add to Cart"',
             position: "absolute",
@@ -45,10 +57,25 @@ const Item = ({ nombre, precio, img }) => {
       >
         <img src="" alt="" />
       </Box>
-      <Typography variant="h4">{nombre}</Typography>
-      <Box display={"flex"} justifyContent={"space-between"} mt={1}>
-        <Typography variant="h5">Prueba</Typography>
-        <Typography variant="h5"> ${precio}</Typography>
+      <Typography variant="h4" mb={3}>
+        {nombre}
+      </Typography>
+      <Box display={"flex"} mt={1}>
+        <Typography
+          sx={{
+            textTransform: "uppercase",
+            bgcolor: `rgba(${CategoryColors[category]},0.2)`,
+            padding: "8px 17px",
+            borderRadius: 10,
+            fontWeight: "bold",
+            color: `rgb(${CategoryColors[category]})`,
+            mr: 3,
+          }}
+          variant="body3"
+        >
+          {category ?? "NO CATEGORY"}
+        </Typography>
+        <Typography variant="h"> ${precio}</Typography>
       </Box>
     </Box>
   );

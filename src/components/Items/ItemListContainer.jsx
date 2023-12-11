@@ -22,7 +22,7 @@ const ItemListContainer = ({ greeting }) => {
       <Box display={"flex"} justifyContent={"center"}>
         <Button
           variant="contained"
-          sx={{ padding: "15px 50px", borderRadius: 15, fontSize: "1.5rem" }}
+          sx={{ padding: "15px 50px", borderRadius: 15, fontSize: "1.2rem" }}
         >
           View all
         </Button>
