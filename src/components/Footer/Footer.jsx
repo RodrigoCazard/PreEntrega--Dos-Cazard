@@ -5,6 +5,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { useTheme } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 const Footer = () => {
   const LogoImage = styled("img")(({ theme }) => ({
     width: 35,
@@ -77,11 +78,36 @@ const Footer = () => {
         gap={2}
       >
         <Typography variant="h5">Categories</Typography>
-        <Typography variant="body3">Desktop</Typography>
-        <Typography variant="body3">Laptop</Typography>
-        <Typography variant="body3">Mobile phone</Typography>
-        <Typography variant="body3">Printer</Typography>
-        <Typography variant="body3">Others</Typography>
+        <Link
+          to={"/category/desktop"}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <Typography variant="body3">Desktop</Typography>{" "}
+        </Link>
+        <Link
+          to={"/category/laptop"}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <Typography variant="body3">Laptop</Typography>{" "}
+        </Link>
+        <Link
+          to={"/category/mobilePhone"}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <Typography variant="body3">Mobile phone</Typography>
+        </Link>
+        <Link
+          to={"/category/printer"}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <Typography variant="body3">Printer</Typography>
+        </Link>
+        <Link
+          to={"/category/others"}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <Typography variant="body3">Others</Typography>
+        </Link>
       </Grid>
       <Grid
         item
