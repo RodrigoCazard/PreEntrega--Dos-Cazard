@@ -5,13 +5,17 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { useTheme } from "@mui/material/styles";
-const NavMenu = () => {
+import { BrowserRouter, Link, NavLink, Route, Routes } from "react-router-dom";
+const NavMenu = ({ isOpen, toggleMenu }) => {
   const [showCategoriesMenu, setShowCategoriesMenu] = useState(false);
 
   const handleCategoriesClick = () => {
     setShowCategoriesMenu(!showCategoriesMenu);
   };
 
+  const handleToggle = () => {
+    toggleMenu();
+  };
   const theme = useTheme();
 
   const primaryColor = theme.palette.primary.main;
@@ -32,6 +36,7 @@ const NavMenu = () => {
     display: "flex",
     alignItems: "center",
     opacity: 0.8,
+    color: "black",
     position: "relative",
     transition: "transform 0.3s ease-in-out",
     "&:hover": {
@@ -56,8 +61,15 @@ const NavMenu = () => {
           rowGap: "20px",
         }}
       >
-        <Typography variant="body1" component={"li"} sx={styleLink}>
-          Home
+        <Typography
+          variant="body1"
+          component={"li"}
+          sx={styleLink}
+          onClick={handleToggle}
+        >
+          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+            Home
+          </Link>
         </Typography>
         <Typography
           onClick={handleCategoriesClick}
@@ -73,25 +85,56 @@ const NavMenu = () => {
             <Box
               position={"absolute"}
               right={"-100%"}
-              top={"15%"}
+              top={"0%"}
               display={"flex"}
               flexDirection={"column"}
               rowGap={2}
             >
               <Typography variant="body1" sx={styleLink} component={"li"}>
-                Laptop
+                <NavLink
+                  onClick={handleToggle}
+                  to="/category/laptop"
+                  style={{ ...styleLink, textDecoration: "none" }}
+                >
+                  Laptop
+                </NavLink>
+              </Typography>
+
+              <Typography variant="body1" component={"li"} sx={styleLink}>
+                <NavLink
+                  onClick={handleToggle}
+                  to="/category/desktop"
+                  style={{ ...styleLink, textDecoration: "none" }}
+                >
+                  Desktop
+                </NavLink>
               </Typography>
               <Typography variant="body1" sx={styleLink} component={"li"}>
-                Desktop
+                <NavLink
+                  onClick={handleToggle}
+                  to="/category/mobilePhone"
+                  style={{ ...styleLink, textDecoration: "none" }}
+                >
+                  Mobile phone
+                </NavLink>
               </Typography>
               <Typography variant="body1" sx={styleLink} component={"li"}>
-                Mobile phone
+                <NavLink
+                  onClick={handleToggle}
+                  to="/category/printer"
+                  style={{ ...styleLink, textDecoration: "none" }}
+                >
+                  Printer
+                </NavLink>
               </Typography>
               <Typography variant="body1" sx={styleLink} component={"li"}>
-                Printer
-              </Typography>
-              <Typography variant="body1" sx={styleLink} component={"li"}>
-                Others
+                <NavLink
+                  onClick={handleToggle}
+                  to="/category/others"
+                  style={{ ...styleLink, textDecoration: "none" }}
+                >
+                  Others
+                </NavLink>
               </Typography>
             </Box>
           ) : (

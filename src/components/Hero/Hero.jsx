@@ -55,7 +55,7 @@ const Hero = () => {
   };
 
   return (
-    <Grid container fluid sx={styledHero.styledGridContainer}>
+    <Grid container sx={styledHero.styledGridContainer}>
       <Grid
         item
         xs={12}

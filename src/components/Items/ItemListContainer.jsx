@@ -1,14 +1,32 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { getProductos } from "../../asyncmock";
+import {
+  getFirstEightProducts,
+  getProductCategories,
+  getProducts,
+} from "../../asyncmock";
 import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
+  const [allProducts, setallProducts] = useState(true);
+
+  const handleAllProducts = () => {
+    setallProducts(!allProducts);
+  };
+
+  const { category } = useParams();
 
   useEffect(() => {
-    getProductos().then((response) => setProducts(response));
-  }, []);
+    const functionProducts = category
+      ? getProductCategories
+      : allProducts
+      ? getFirstEightProducts
+      : getProducts;
+
+    functionProducts(category).then((res) => setProducts(res));
+  }, [category, allProducts]);
 
   return (
     <Box component={"main"} mb={"120px"}>
@@ -19,14 +37,19 @@ const ItemListContainer = ({ greeting }) => {
         Explore out Products
       </Typography>
       <ItemList products={products}></ItemList>
-      <Box display={"flex"} justifyContent={"center"}>
-        <Button
-          variant="contained"
-          sx={{ padding: "15px 50px", borderRadius: 15, fontSize: "1.2rem" }}
-        >
-          View all
-        </Button>
-      </Box>
+      {!category ? (
+        <Box display={"flex"} justifyContent={"center"}>
+          <Button
+            onClick={handleAllProducts}
+            variant="contained"
+            sx={{ padding: "15px 50px", borderRadius: 15, fontSize: "1.2rem" }}
+          >
+            {allProducts ? "View all" : "View less"}
+          </Button>
+        </Box>
+      ) : (
+        <></>
+      )}
     </Box>
   );
 };

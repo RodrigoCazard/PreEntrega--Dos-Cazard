@@ -9,6 +9,7 @@ import NavWidget from "./NavWidget.jsx";
 import LogoImg from "../../assets/logo.png";
 import PropTypes from "prop-types";
 import { useTheme } from "@emotion/react";
+import { Link, NavLink } from "react-router-dom";
 
 const MainNavBar = ({ isOpen, toggleMenu }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -68,26 +69,31 @@ const MainNavBar = ({ isOpen, toggleMenu }) => {
     <Box height="120px">
       <Box style={styledMainNavBar.styledHeader} component={"header"}>
         <NavWidget isOpen={isOpen} toggleMenu={handleToggle} sx={{}} />
-        <Box display={"flex"} alignItems={"center"} sx={{ cursor: "pointer" }}>
-          <img
-            src={LogoImg}
-            alt="Store logo"
-            style={{ display: "block", width: 45, marginRight: "10px" }}
-          />
-          <Typography
-            variant="body1"
-            component="h1"
-            sx={{
-              display: {
-                xs: "none",
-                sm: "block",
-              },
-            }}
+        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+          <Box
+            display={"flex"}
+            alignItems={"center"}
+            sx={{ cursor: "pointer" }}
           >
-            ByteTech
-          </Typography>
-        </Box>
-
+            <img
+              src={LogoImg}
+              alt="Store logo"
+              style={{ display: "block", width: 45, marginRight: "10px" }}
+            />
+            <Typography
+              variant="body1"
+              component="h1"
+              sx={{
+                display: {
+                  xs: "none",
+                  sm: "block",
+                },
+              }}
+            >
+              ByteTech
+            </Typography>
+          </Box>
+        </Link>
         <Box sx={{ display: "flex", gap: "4vw", alignItems: "center" }}>
           <SearchWidget />
           <CartWidget />

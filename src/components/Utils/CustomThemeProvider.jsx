@@ -12,14 +12,6 @@ const CustomThemeProvider = ({ children }) => {
       secondary: {
         main: green[500],
       },
-      category1:{
-        main: #03a9f4,
-      },
-      category2:{
-        main:#ff9800,
-      }
- 
-
     },
     breakpoints: {
       values: {

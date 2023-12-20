@@ -1,16 +1,44 @@
 const productos = [
-  { id: 1, nombre: "Yerba", precio: 50, category: "desktop" },
-  { id: 2, nombre: "Fideos", precio: 150, category: "laptop" },
-  { id: 3, nombre: "Coquita", precio: 250, category: "mobilePhone" },
-  { id: 4, nombre: "Arroz", precio: 350, category: "laptop" },
-  { id: 4, nombre: "Arroz", precio: 350, category: "laptop" },
-  { id: 4, nombre: "Arroz", precio: 350, category: "desktop" },
-  { id: 4, nombre: "Arroz", precio: 350, category: "mobilePhone" },
-  { id: 4, nombre: "Arroz", precio: 350, category: "desktop" },
+  { id: "1", nombre: "Yerba", precio: 50, category: "desktop" },
+  { id: "2", nombre: "Fideos", precio: 150, category: "laptop" },
+  { id: "3", nombre: "Coquita", precio: 250, category: "mobilePhone" },
+  { id: "4", nombre: "Arroz", precio: 350, category: "laptop" },
+  { id: "5", nombre: "Arroz", precio: 350, category: "laptop" },
+  { id: "6", nombre: "Arroz", precio: 350, category: "desktop" },
+  { id: "7", nombre: "Arroz", precio: 350, category: "mobilePhone" },
+  { id: "8", nombre: "Arroz", precio: 350, category: "desktop" },
+  { id: "9", nombre: "Arroz", precio: 350, category: "printer" },
+  { id: "10", nombre: "Arroz", precio: 350, category: "others" },
 ];
 
-export const getProductos = () => {
+export const getProducts = () => {
   return new Promise((resolve) => {
     resolve(productos);
+  });
+};
+
+export const getFirstEightProducts = () => {
+  return new Promise((resolve) => {
+    let firstEight = [];
+    for (let i = 1; i <= 8; i++) {
+      firstEight.push(productos[i]);
+    }
+
+    resolve(firstEight);
+  });
+};
+export const getProductCategories = (idCategory) => {
+  return new Promise((resolve) => {
+    const productCategory = productos.filter(
+      (item) => item.category === idCategory
+    );
+    resolve(productCategory);
+  });
+};
+
+export const getUnProducto = (id) => {
+  return new Promise((resolve) => {
+    const producto = productos.find((item) => item.id === id);
+    resolve(producto);
   });
 };

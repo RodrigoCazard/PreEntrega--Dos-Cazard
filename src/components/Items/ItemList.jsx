@@ -5,8 +5,8 @@ import { Box, Grid } from "@mui/material";
 const ItemList = ({ products }) => {
   return (
     <Grid container spacing={6} my={10}>
-      {products.map((product) => (
-        <Grid item xs={12} sm={6} lg={3} xl={3} key={product.id}>
+      {products.map((product, index) => (
+        <Grid item xs={12} sm={6} lg={3} xl={3} key={index}>
           <Item {...product}></Item>
         </Grid>
       ))}

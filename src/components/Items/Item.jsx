@@ -2,6 +2,7 @@ import { useTheme } from "@emotion/react";
 import { Category } from "@mui/icons-material";
 import { Box, Chip, Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CategoryColors = {
   desktop: "60, 179, 113",
@@ -11,7 +12,7 @@ const CategoryColors = {
   // Puedes agregar más categorías y colores según sea necesario
 };
 
-const Item = ({ category, nombre, precio, img }) => {
+const Item = ({ id, category, nombre, precio, img }) => {
   const theme = useTheme();
 
   const handleClick = () => {
@@ -21,42 +22,44 @@ const Item = ({ category, nombre, precio, img }) => {
 
   return (
     <Box>
-      <Box
-        bgcolor={"rgba(0,0,0,0.03)"}
-        minHeight={"350px"}
-        borderRadius={10}
-        position={"relative"}
-        mb={5}
-        sx={{
-          position: "relative",
-          cursor: "pointer",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "200px",
+      <Link to={`/item/${id}`}>
+        <Box
+          bgcolor={"rgba(0,0,0,0.03)"}
+          minHeight={"350px"}
+          borderRadius={10}
+          position={"relative"}
+          mb={5}
+          sx={{
+            position: "relative",
+            cursor: "pointer",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "200px",
 
-          "&::before": {
-            content: '"Add to Cart"',
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            backgroundColor: primaryColor,
-            color: "white",
-            padding: "16px 32px",
-            borderRadius: "4px",
-            fontSize: "1rem",
-            opacity: 0,
-            transition: "opacity 0.3s ease-in-out",
-            pointerEvents: "none",
-          },
-          "&:hover::before": {
-            opacity: 1,
-          },
-        }}
-      >
-        <img src="" alt="" />
-      </Box>
+            "&::before": {
+              content: '"Add to Cart"',
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              backgroundColor: primaryColor,
+              color: "white",
+              padding: "16px 32px",
+              borderRadius: "4px",
+              fontSize: "1rem",
+              opacity: 0,
+              transition: "opacity 0.3s ease-in-out",
+              pointerEvents: "none",
+            },
+            "&:hover::before": {
+              opacity: 1,
+            },
+          }}
+        >
+          <img src="" alt="" />
+        </Box>
+      </Link>
       <Typography variant="h4" mb={3}>
         {nombre}
       </Typography>

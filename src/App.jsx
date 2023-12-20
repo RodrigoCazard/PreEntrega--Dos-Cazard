@@ -1,10 +1,10 @@
 import "./App.css";
-import NavBar from "./components/NavBar/MainNavBar";
+import MainNavBar from "./components/NavBar/MainNavBar";
 
 import ItemListContainer from "./components/Items/ItemListContainer";
 import Hero from "./components/Hero/Hero";
 import ScrollToTopOnRefresh from "./components/Utils/ScrollToTop";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useParams } from "react";
 import Loader from "./components/Utils/Loader";
 import NavMenu from "./components/NavBar/NavMenu";
 import CategoryListContainer from "./components/Categories/CategoryListContainer";
@@ -15,6 +15,8 @@ import ReviewsNotes from "./components/ReviewsNotes/ReviewsNotes";
 import Newsletter from "./components/Newsletter/Newsletter";
 import Footer from "./components/Footer/Footer";
 import { Toaster } from "sonner";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -22,7 +24,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000); //Tiempo del loading
+    }, 500); //Tiempo del loading
 
     return () => clearTimeout();
   }, []);
@@ -46,32 +48,55 @@ function App() {
 
   return (
     <>
-      <Toaster position="bottom-left" />
-      <ScrollToTopOnRefresh />
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <CustomThemeProvider>
-            <NavBar isOpen={isOpen} toggleMenu={toggleMenu} />
-            {isOpen ? (
-              <NavMenu isOpen={isOpen}></NavMenu>
-            ) : (
-              <Box style={{ padding: "0 10%" }}>
-                <Hero></Hero>
-                <CategoryListContainer
-                  greeting={"Aqui van a ir las categorias :D"}
-                ></CategoryListContainer>
-                <ItemListContainer greeting={"Aqui van a ir los items :D"} />
-                <WhyUs></WhyUs>
-                <ReviewsNotes></ReviewsNotes>
-                <Newsletter></Newsletter>
-                <Footer></Footer>
-              </Box>
-            )}
-          </CustomThemeProvider>
-        </>
-      )}
+      <BrowserRouter basename="/PreEntrega--Uno-Cazard">
+        <Toaster position="bottom-left" />
+        <ScrollToTopOnRefresh />
+
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            <CustomThemeProvider>
+              <MainNavBar isOpen={isOpen} toggleMenu={toggleMenu} />
+              {isOpen ? (
+                <NavMenu isOpen={isOpen} toggleMenu={toggleMenu}></NavMenu>
+              ) : (
+                <Box style={{ padding: "0 10%" }}>
+                  <Routes>
+                    <Route
+                      path="/"
+                      element={
+                        <>
+                          <Hero></Hero>
+                          <CategoryListContainer
+                            greeting={"Aqui van a ir las categorias :D"}
+                          ></CategoryListContainer>
+                          <ItemListContainer
+                            greeting={"Aqui van a ir los items :D"}
+                          />
+                          <WhyUs></WhyUs>
+                          <ReviewsNotes></ReviewsNotes>
+                          <Newsletter></Newsletter>
+                        </>
+                      }
+                    />
+                    <Route
+                      path="/category/:category"
+                      element={<ItemListContainer></ItemListContainer>}
+                    />
+                    <Route
+                      path="/item/:idItem"
+                      element={<ItemDetailContainer></ItemDetailContainer>}
+                    />
+                  </Routes>
+
+                  <Footer></Footer>
+                </Box>
+              )}
+            </CustomThemeProvider>
+          </>
+        )}
+      </BrowserRouter>
     </>
   );
 }
