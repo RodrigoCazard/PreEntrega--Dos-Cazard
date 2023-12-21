@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ItemListContainer from "../Items/ItemListContainer";
 import { useParams } from "react-router-dom";
 import { getUnProducto } from "../../asyncmock";
 import ItemDetail from "./ItemDetail";

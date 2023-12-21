@@ -1,6 +1,6 @@
 import { Grid, Button, Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import Img from "./icon-image-not-found-free-vector.jpg";
+import Img from "../../assets/icon-image-not-found-free-vector.jpg";
 
 const Hero = () => {
   const styledHero = {

@@ -1,14 +1,20 @@
 const productos = [
-  { id: "1", nombre: "Yerba", precio: 50, category: "desktop" },
-  { id: "2", nombre: "Fideos", precio: 150, category: "laptop" },
-  { id: "3", nombre: "Coquita", precio: 250, category: "mobilePhone" },
-  { id: "4", nombre: "Arroz", precio: 350, category: "laptop" },
-  { id: "5", nombre: "Arroz", precio: 350, category: "laptop" },
-  { id: "6", nombre: "Arroz", precio: 350, category: "desktop" },
-  { id: "7", nombre: "Arroz", precio: 350, category: "mobilePhone" },
-  { id: "8", nombre: "Arroz", precio: 350, category: "desktop" },
-  { id: "9", nombre: "Arroz", precio: 350, category: "printer" },
-  { id: "10", nombre: "Arroz", precio: 350, category: "others" },
+  { id: "1", nombre: "Yerba", precio: 50, category: "desktop", stock: 4 },
+  { id: "2", nombre: "Fideos", precio: 150, category: "laptop", stock: 6 },
+  {
+    id: "3",
+    nombre: "Coquita",
+    precio: 250,
+    category: "mobilePhone",
+    stock: 2,
+  },
+  { id: "4", nombre: "Arroz", precio: 350, category: "laptop", stock: 8 },
+  { id: "5", nombre: "Arroz", precio: 350, category: "laptop", stock: 4 },
+  { id: "6", nombre: "Arroz", precio: 350, category: "desktop", stock: 23 },
+  { id: "7", nombre: "Arroz", precio: 350, category: "mobilePhone", stock: 12 },
+  { id: "8", nombre: "Arroz", precio: 350, category: "desktop", stock: 9 },
+  { id: "9", nombre: "Arroz", precio: 350, category: "printer", stock: 2 },
+  { id: "10", nombre: "Arroz", precio: 350, category: "others", stock: 76 },
 ];
 
 export const getProducts = () => {
