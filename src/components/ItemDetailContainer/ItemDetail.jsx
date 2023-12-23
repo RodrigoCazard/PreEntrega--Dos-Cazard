@@ -44,7 +44,7 @@ const ItemDetail = ({ id, nombre, precio, img, category, stock }) => {
 
   return (
     <Grid container>
-      <Grid item xs={6} margin={"20px 0px 150px"}>
+      <Grid item sm={12} lg={6} margin={"20px 0px 150px"}>
         <Box textAlign={"center"}>
           <img
             src={Img}
@@ -61,12 +61,14 @@ const ItemDetail = ({ id, nombre, precio, img, category, stock }) => {
 
       <Grid
         item
-        xs={6}
+        sm={12}
+        lg={6}
         width={"100%"}
         margin={"20px 0px 150px"}
         display={"flex"}
         flexDirection={"column"}
         justifyContent={"center"}
+        alignItems={{ sm: "center", lg: "flex-start" }}
       >
         <Typography
           color={"primary"}
