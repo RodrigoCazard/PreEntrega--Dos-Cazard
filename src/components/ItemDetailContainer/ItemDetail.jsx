@@ -1,6 +1,7 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
 import Img from "../../assets/icon-image-not-found-free-vector.jpg";
+
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useTheme } from "@emotion/react";
@@ -13,7 +14,7 @@ const CategoryColors = {
   // Puedes agregar más categorías y colores según sea necesario
 };
 
-const ItemDetail = ({ id, nombre, precio, img, category, stock }) => {
+const ItemDetail = ({ id, nombre, precio, category, stock }) => {
   const [favorite, setFavorite] = useState(false);
 
   const handleFavorite = () => {

@@ -48,7 +48,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter basename="/PreEntrega--Uno-Cazard">
+      <BrowserRouter basename="/PreEntrega--Dos-Cazard">
         <Toaster position="bottom-left" />
         <ScrollToTopOnRefresh />
 
@@ -75,7 +75,7 @@ function App() {
                             greeting={"Aqui van a ir los items :D"}
                           />
                           <WhyUs></WhyUs>
-                          <ReviewsNotes></ReviewsNotes>
+
                           <Newsletter></Newsletter>
                         </>
                       }
