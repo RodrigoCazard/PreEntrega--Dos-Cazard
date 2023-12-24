@@ -1,6 +1,6 @@
 import { Grid, Button, Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import Img from "../../assets/icon-image-not-found-free-vector.jpg";
+// import Img from "../../assets/icon-image-not-found-free-vector.jpg";
 
 const Hero = () => {
   const styledHero = {
@@ -99,11 +99,11 @@ const Hero = () => {
         alignItems={"center"}
         justifyContent={"center"}
       >
-        <img
+        {/* <img
           src={Img}
           alt="Imagen de computadora"
           style={{ objectFit: "contain", width: "80%" }}
-        ></img>
+        ></img> */}
       </Grid>
     </Grid>
   );
