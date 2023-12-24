@@ -1,13 +1,12 @@
 import { useTheme } from "@emotion/react";
 import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-// import Img from "../../assets/icon-image-not-found-free-vector.jpg";
+import Img from "../../assets/icon-image-not-found-free-vector.jpg";
 const CategoryColors = {
   desktop: "60, 179, 113",
   laptop: "0, 0, 255",
   mobilePhone: "255, 165, 0",
   printer: "255, 0, 0",
-  // Puedes agregar más categorías y colores según sea necesario
 };
 
 const Item = ({ id, category, nombre, precio, img }) => {
@@ -28,10 +27,10 @@ const Item = ({ id, category, nombre, precio, img }) => {
           position={"relative"}
           mb={5}
           sx={{
-            // backgroundImage: `url(${Img})`,
-            // backgroundPosition: "center",
-            // backgroundRepeat: "no-repeat",
-            // backgroundSize: "cover",
+            backgroundImage: `url(${Img})`,
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
             position: "relative",
             cursor: "pointer",
             display: "flex",
